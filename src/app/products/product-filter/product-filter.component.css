@@ -1,0 +1,6 @@
+/* modified stcky top calss as it is not supported in safari*/
+.sticky-top {
+    margin-top:80px;
+    position: fixed;
+    /*position: sticky;*/
+}

@@ -1,0 +1,42 @@
+<div class="row d-flex justify-content-left mt-5 mb-5">
+    <a routerLink="/admin/product/new" class="btn btn-primary">New Product</a>
+</div>
+<p>
+    <input #query (keyup)="filter(query.value)" type="text" class="form-control" placeholder="Search..." />
+</p>
+
+<!--<data-table [items]="items" [itemCount]="itemCount" (reload)="reloadItems($event)">
+    <data-table-column [property]="'title'" [header]="'Title'" [sortable]="true" [resizable]="true">
+
+    </data-table-column>
+    <data-table-column [property]="'price'" [header]="'Price'" [sortable]="true" [resizable]="true">
+        <ng-template #dataTableCell let-item="product">
+            {{product.price| currency}}
+        </ng-template>
+    </data-table-column>
+    <data-table-column [property]="'key'">
+        <ng-template #dataTableCell let-item="product">
+            <a [routerLink]="['/admin/product/edit/',product.key]">Edit</a>
+        </ng-template>
+        
+    </data-table-column>
+</data-table>-->
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Price</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of filteredProducts ; index as i;  ">
+            <th scope="row">{{i+1}}</th>
+            <td>{{product.title}}</td>
+            <td>{{product.price | currency}}</td>
+
+            <td><a [routerLink]="['/admin/product/edit/',product.key]">Edit</a></td>
+        </tr>
+    </tbody>
+</table>
